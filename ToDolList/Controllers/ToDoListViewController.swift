@@ -10,7 +10,7 @@ import CoreData
 
 class ToDoListViewController: UITableViewController {
     
-//    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+   //let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var itemArray = [Item]()
@@ -77,14 +77,15 @@ class ToDoListViewController: UITableViewController {
     
     // MARK: - TableViewDelegate Method
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {// tells a delegate that a specified a row is now selected
-        // print(itemArray[indexPath.row])
-//        context.delete(itemArray[indexPath.row])
-//        itemArray.remove(at: indexPath.row)
-//
+         print(itemArray[indexPath.row])
+        
+            context.delete(itemArray[indexPath.row])
+            itemArray.remove(at: indexPath.row)
+        
          
         //itemArray[indexPath.row].setValue("Completed", forKey: "title")
         //toggle the checkmark
-        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        //itemArray[indexPath.row].done = !itemArray[indexPath.row].done
 //        if itemArray[indexPath.row].done == false{
 //            itemArray[indexPath.row].done = true
 //
